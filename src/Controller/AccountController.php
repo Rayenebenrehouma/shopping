@@ -31,7 +31,10 @@ class AccountController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
+            $this->addFlash("success", "Le mot de passe a été modifié avec succès");
             $entityManager->flush();
+
+            $this->redirectToRoute('account');
         }
 
         return $this->render('account/pwd.html.twig',[
