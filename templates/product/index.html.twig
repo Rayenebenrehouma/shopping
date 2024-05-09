@@ -13,10 +13,9 @@
                         > {{ product.name }}</i></small>
                 <h1>{{ product.name }}</h1>
                 {{ product.description|raw }}
-                <span class="d-block mt-3">{{ product.price }}</span>
+                <span class="d-block mt-3">{{ product.pricewt|price }}</span>
                 <button class="btn btn-success w-100 mt-3">Ajouter au panier</button>
             </div>
         </div>
     </div>
 {% endblock %}
-

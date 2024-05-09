@@ -14,6 +14,10 @@ class ProductController extends AbstractController
     {
         $product = $productRepository->findOneBySlug($slug);
 
+        if (!$product){
+            return $this->redirectToRoute('home');
+        }
+
         return $this->render('product/index.html.twig', [
             'product' => $product,
         ]);
