@@ -55,5 +55,4 @@ class ProductCrudController extends AbstractCrudController
             AssociationField::new('category', 'Catégories associés')
         ];
     }
-
 }
