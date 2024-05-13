@@ -6,12 +6,32 @@
         <h1>
             Mon panier
         </h1>
-        <div class="row">
-            <div class="col-md-8">
-                Liste de mes produits
-            </div>
-            <div class="col-md-4">
-                Récap panier
+                <div class="row">
+                    <div class="col-md-8">
+                            {% for product in cart %}
+                                <div class="row">
+                                            <div class="col-md-2">
+                                                <img src="/uploads/{{ product.object.illustration }}" alt="{{ product.object.name }}" class="img-fluid">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <stong>{{ product.object.name }}</stong>
+                                                <span class="d-block small">Prix unitaire : {{ product.object.pricewt|price }}</span>
+                                            </div>
+                                            <div class="col-md-2 text-right">
+                                                <a href="{{ path('cart_decrease' , { id : product.object.id }) }}">-</a><span class="badge text-bg-dark">x{{ product.qty }}</span><a href="{{ path('cart_add' , { id : product.object.id }) }}">+</a>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <strong>{{ (product.qty * product.object.pricewt)|price }}</strong>
+                                            </div>
+                                        <br>
+                                </div>
+                            {% endfor %}
+                        <a href="{{ path('cart_remove') }}" class="">Vider le panier</a>
+                            </div>
+                    <div class="col-md-4">
+                        Récap panier
+                    </div>
+                </div>
             </div>
         </div>
     </div>
