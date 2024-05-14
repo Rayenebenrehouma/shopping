@@ -39,7 +39,10 @@
                     {% else %}
                         <a href="{{ path('login') }}"><i data-feather="user"></i></a>
                     {% endif %}
-                    <a href="{{ path('cart') }}"><i data-feather="shopping-cart"></i></a>
+                    <a href="{{ path('cart') }}">
+                        <i data-feather="shopping-cart"></i>
+                        <span class="badge text-dark bg-light">{{ fullCartQuantity }}</span>
+                    </a>
                 </div>
             </div>
         </div>

@@ -29,7 +29,21 @@
                         <a href="{{ path('cart_remove') }}" class="">Vider le panier</a>
                             </div>
                     <div class="col-md-4">
-                        Récap panier
+                        <div class="bg-light p-3">
+                            <div class="d-flex justify-content-between">
+                                <span class="fw-bold">Total</span>
+                                <span>{{ fullCartQuantity }}</span>
+                            </div>
+                        </div>
+                        <div class="bg-light p-3">
+                            <div class="d-flex justify-content-between mt-3">
+                                <span class="fw-bold">Prix total T.T.C</span>
+                                <span>{{ totalWt|price }}</span>
+                            </div>
+                            <div>
+                                <a href="" class="btn btn-success w-100 mt-3">Commander</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
