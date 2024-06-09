@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <div class="container my-5">
+        <h1>
+            Espace membre
+        </h1>
+
+
+        <div class="row">
+            <div class="col-md-3">
+                {% include 'account/_menu.html.twig' %}
+            </div>
+            <div class="col-md-9">
+                <div class="d-flex justify-content-between">
+                    <h5>Mes addresses</h5>
+                    <a href="{{ path('account_address_form') }}" class="btn btn-light">Ajouter une adresse</a>
+                </div>
+
+                {% if app.user.adresses|length == 0 %}
+                <p>Vous n'avez pas encore d'addresse enregistré</p>
+                {% else%}
+                    <div class="row">
+                        {% for address in app.user.adresses %}
+                            <div class="col-md-4 mt-2">
+                                <div class="bg-light p2 text-center">
+                                    <strong>{{ address.firstname }} {{ address.lastname }}</strong><br>
+                                    {{ address.adress }}<br>
+                                    {{ address.postal }}, {{ address.city }}<br>
+                                    {{ address.country }}<br>
+                                    <a href="{{ path('account_address_form', { id : address.id}) }}" class="small text-secondary">Editer</a>
+                                    <a href="{{ path('account_address_delete', { id : address.id}) }}" class="small text-secondary">Supprimer</a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
