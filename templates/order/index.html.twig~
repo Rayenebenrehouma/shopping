@@ -5,7 +5,7 @@
         <h1>
             Ma commande
         </h1>
-
+        
         {{ form(deliveryForm) }}
     </div>
 {% endblock %}

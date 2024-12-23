@@ -22,7 +22,7 @@ class OrderType extends AbstractType
                 'choices' => $options['addresses'],
                 'label_html' => true
             ])
-            ->add('carrier', EntityType::class, [
+            ->add('carriers', EntityType::class, [
                 'label' => "Choisissez votre transporteur",
                 'required' => true,
                 'class' => Carrier::class,
