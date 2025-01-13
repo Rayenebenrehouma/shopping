@@ -1,11 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container my-5">
+    <div class="container my-5 small-container">
         <h1>
             Ma commande
         </h1>
 
-        {{ form(deliveryForm) }}
+        {{ form_start(deliveryForm) }}
+            {{ form_row(deliveryForm.address) }}
+        <a href="{{ path('account_address_form') }}" class="small">Ajouter une nouvelle adresse de livraison</a>
+        <hr>
+            {{ form_row(deliveryForm.carrier) }}
+        {{ form_end(deliveryForm) }}
     </div>
 {% endblock %}
