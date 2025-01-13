@@ -67,7 +67,7 @@ class AddressController extends AbstractController
             $this->addFlash('success','Votre adresse est correctement sauvegardée.');
 
             if ($cart->fullQuantity() > 0){
-                return $this->redirectToRoute('commande');
+                return $this->redirectToRoute('cart');
             }
             return $this->redirectToRoute('account_addresses');
         }

@@ -38,7 +38,7 @@ class Order
     /**
      * @var Collection<int, OrderDetails>
      */
-    #[ORM\OneToMany(targetEntity: OrderDetails::class, mappedBy: 'myOrder', cascade: ['persist', 'remove'])]
+    #[ORM\OneToMany(targetEntity: OrderDetails::class, mappedBy: 'myOrder')]
     private Collection $orderDetails;
 
     public function __construct()
