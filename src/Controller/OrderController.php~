@@ -73,6 +73,7 @@ class OrderController extends AbstractController
 
 
             $order = new Order();
+            $order->setUser($user);
             $order->setCreatedAt(new \DateTime());
             $order->setCarrierName($form->get('carrier')->getData()->getName());
             $order->setCarrierPrice($form->get('carrier')->getData()->getPrice());
@@ -96,7 +97,7 @@ class OrderController extends AbstractController
 
         return $this->render('order/summary.html.twig',[
             'choices' => $form->getData(),
-            'cart' => $cart,
+            'cart' => $products,
             'totalWt' => $cart->getTotalWt()
         ]);
     }

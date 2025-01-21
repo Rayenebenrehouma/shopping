@@ -73,6 +73,8 @@ class OrderController extends AbstractController
 
 
             $order = new Order();
+            $user = $this->getUser();
+            $order->setUser($user);
             $order->setCreatedAt(new \DateTime());
             $order->setCarrierName($form->get('carrier')->getData()->getName());
             $order->setCarrierPrice($form->get('carrier')->getData()->getPrice());
